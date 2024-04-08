@@ -1,10 +1,9 @@
-// Import the functions you need from the SDKs you need
+// Import the functions needed from the SDKs
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
+// web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCjuWkWovm-_fKzJIsyFyiNE4jP7cmp3HE",
   authDomain: "react-dream-home-2f36b.firebaseapp.com",
