@@ -1,25 +1,47 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm();
 
-    const handleRegister = () => {
-        e.preventDefault();
-
-
-        createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-            setSuccess('Registration is successfull!')
-            e.target.reset()
-        })
-        .catch(error => {
-            console.error(error);
-            setRegisterError(error.message)
-        })
+    const onSubmit = (e) => {
+      
+      createUser(e.email, e.password)
+      .then(result => {
+        console.log(result.user)
+      })
+      .catch(error => {
+        console.error(error);
+    })
     }
+    
+
+    // const handleRegister = (e) => {
+    //     e.preventDefault();
+    //     // const name = e.target.name.value;
+    //     // const email = e.target.email.value;
+    //     // const password = e.target.password.value;
+    //     // const photoURL = e.target.photoURL.value;
+
+    //     createUser(email, password)
+    //     .then(result => {
+    //         console.log(result.user)
+    //         // setSuccess('Registration is successfull!')
+    //         e.target.reset()
+    //     })
+    //     .catch(error => {
+    //         console.error(error);
+    //         // setRegisterError(error.message)
+    //     })
+    // }
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -28,7 +50,7 @@ const Register = () => {
           <h1 className="text-5xl font-bold mb-6">Register Now!</h1>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body" onSubmit={handleRegister}>
+          <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -38,6 +60,7 @@ const Register = () => {
                 name="name"
                 placeholder="name"
                 className="input input-bordered"
+                {...register("name")}
                 
               />
             </div>
@@ -50,8 +73,22 @@ const Register = () => {
                 name = "email"
                 placeholder="email"
                 className="input input-bordered"
-                required
+                {...register("email", { required: true })}    
               />
+              {errors.email && <span className="text-red-500">This field is required</span>}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">PhotoURL</span>
+              </label>
+              <input
+                type="text"
+                name = "photoURL"
+                placeholder="photoURL"
+                className="input input-bordered"
+                {...register("photoURL")}
+              />
+              
             </div>
             <div className="form-control">
               <label className="label">
@@ -62,8 +99,9 @@ const Register = () => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
-                required
+                {...register("password", { required: true })} 
               />
+              {errors.password && <span className="text-red-500">This field is required</span>}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
