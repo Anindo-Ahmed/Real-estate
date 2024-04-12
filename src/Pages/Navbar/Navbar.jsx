@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
-  console.log(user)
+
   const navLinks = (
     <>
       <li>
@@ -34,7 +35,7 @@ const Navbar = () => {
     })
 }
   return (
-    <div className="navbar bg-base-100 mt-12">
+    <div className="navbar bg-base-100 my-6">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,12 +61,12 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Dream Home</a>
+        <a className="btn btn-ghost text-xl"><FaHome className="text-2xl"/>Dream Home</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end tooltip" data-tip={user.displayName}>
+      <div className="navbar-end tooltip" >
 
         {
           user ? <div className="dropdown dropdown-end">

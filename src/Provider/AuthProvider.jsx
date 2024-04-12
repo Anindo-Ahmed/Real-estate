@@ -6,7 +6,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    console.log(user)
+    
     const googleProvider = new GoogleAuthProvider();
     
     // create user
@@ -19,7 +19,7 @@ const AuthProvider = ({children}) => {
     }
     //  user sign out
     const logOut = () => {
-        return signOut(auth)
+        return signOut(auth);
     }
     // login with google
     const googleLogin = () => {
@@ -36,7 +36,7 @@ const AuthProvider = ({children}) => {
             unSubscribe()
         }
     }, [])
-    
+
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

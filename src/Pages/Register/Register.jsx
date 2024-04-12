@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
-    
+    // const [success, setSuccess] = useState(null);
+    // const [registerError, setRegisterError] = useState('');
+
+    // setSuccess('');
+    // setRegisterError('');
+
     const {
       register,
       handleSubmit,
@@ -14,34 +19,23 @@ const Register = () => {
 
     const onSubmit = (e) => {
       
+      // if(!/[^(?=.\d)?=.[a-z](?=.*[A-Z]).{6,20}$]/.test(e.password)){
+      //   setRegisterError('please provide a valid password');
+      //   return;
+      // }
+
       createUser(e.email, e.password)
       .then(result => {
         console.log(result.user)
+        // setSuccess('User created successfully')
       })
       .catch(error => {
         console.error(error);
     })
+
+    
     }
     
-
-    // const handleRegister = (e) => {
-    //     e.preventDefault();
-    //     // const name = e.target.name.value;
-    //     // const email = e.target.email.value;
-    //     // const password = e.target.password.value;
-    //     // const photoURL = e.target.photoURL.value;
-
-    //     createUser(email, password)
-    //     .then(result => {
-    //         console.log(result.user)
-    //         // setSuccess('Registration is successfull!')
-    //         e.target.reset()
-    //     })
-    //     .catch(error => {
-    //         console.error(error);
-    //         // setRegisterError(error.message)
-    //     })
-    // }
 
   return (
     <div className="hero min-h-screen bg-base-200">
