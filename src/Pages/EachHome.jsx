@@ -1,5 +1,6 @@
 import { FaBath, FaBed, FaSquare } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const EachHome = ({ home }) => {
   const { id, segment_name, estate_title, description, price, status, area, location, image, facilities, bed, bath } = home;
@@ -17,17 +18,17 @@ const EachHome = ({ home }) => {
         <h2 className="card-title">{estate_title}</h2>
         <p className="flex flex-row gap-2 items-center mb-3"><FaLocationDot/> <span className="font-light text-sm ">{location}</span></p>
         {
-            status=='rent' ? <div className="bg-cyan-700 w-12 text-center text-white">Rent</div> : <div className="bg-orange-500 w-12 text-center text-white">Sale</div>
+            status=='rent' ? <div className="bg-cyan-700 w-12 text-center text-white text-sm">Rent</div> : <div className="bg-orange-500 w-12 text-center text-white text-sm">Sale</div>
         }
         <hr className="border mt-3"/>
-        <div className="flex flex-row justify-between font-light mt-2">
+        <div className="flex flex-row justify-between mt-2 text-gray-500 text-sm">
             <div><p className="flex flex-row gap-2 items-center"><FaBed/>{bed} <span>Beds</span></p></div>
             <div><p className="flex flex-row gap-2 items-center"><FaBath/>{bath} <span>Baths</span></p></div>
             <div><p className="flex flex-row gap-2 items-center"><FaSquare/>{area}</p></div>
         </div>
         <hr className="border my-2"/>
         <div className="card-actions justify-start">
-          <button className=" bg-[#2a2929] text-white py-2 px-6 rounded-md hover:bg-orange-400">View Property</button>
+          <Link to={`/home/${id}`}><button className=" bg-[#2a2929] text-white py-2 px-4 rounded-sm hover:bg-orange-400">View Property</button></Link>
         </div>
       </div>
     </div>

@@ -15,6 +15,7 @@ import 'swiper/css/bundle';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 import EachHome from "../EachHome";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
     const [homes, setHomes] = useState([]);
 
@@ -26,11 +27,16 @@ const Home = () => {
   return (
     
     <div>
+        <Helmet>
+            <title>
+                Dream Home | Home
+            </title>
+        </Helmet>
         <Swiper 
             pagination={true}
             navigation={true}
             modules={[Pagination, Navigation]}
-            className="mySwiper"
+            className="mySwiper mt-20"
             loop={true}>
             <SwiperSlide >
                 <img src={banner1} alt="banner1" />

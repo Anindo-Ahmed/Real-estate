@@ -1,43 +1,50 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import banner1 from "../../assets/banner 3.jpeg";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-    const {userLogin, googleLogin} = useContext(AuthContext);
-    
+  const { userLogin, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
 
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const onSubmit = (e) => {
-     
-      userLogin(e.email, e.password)
-      .then(result => {
-        console.log(result.user)
+  const onSubmit = (e) => {
+    userLogin(e.email, e.password)
+      .then((result) => {
+        console.log(result.user);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
-    })
-    };
+      });
+  };
 
-    const handleGoogleSignIn = () => {
-        googleLogin()
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.error(error);
-        })
-    }
-    return (
-        <div className="hero min-h-screen bg-base-200">
+  const handleGoogleSignIn = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  return (
+    <div>
+      <Helmet>
+        <title>Dream Home | Login</title>
+      </Helmet>
+      <div className="hero min-h-screen">
+        <img src={banner1} alt="" />
         <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
+          <div className="text-start lg:text-left">
             <h1 className="text-5xl font-bold mb-6">Login Now!</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -51,9 +58,11 @@ const Login = () => {
                   name="email"
                   placeholder="email"
                   className="input input-bordered"
-                  {...register("email", { required: true })}    
+                  {...register("email", { required: true })}
                 />
-              {errors.email && <span className="text-red-500">This field is required</span>}
+                {errors.email && (
+                  <span className="text-red-500">This field is required</span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -64,26 +73,47 @@ const Login = () => {
                   name="password"
                   placeholder="password"
                   className="input input-bordered"
-                  {...register("password", { required: true })}    
-                  />
-                  {errors.password && <span className="text-red-500">This field is required</span>}
+                  {...register("password", { required: true })}
+                />
+                {errors.password && (
+                  <span className="text-red-500">This field is required</span>
+                )}
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
-              <div className="form-control my-6 gap-3">
-                <button className="btn btn-success">Login</button>
-                <button onClick={handleGoogleSignIn} className="btn btn-ghost"><FaGoogle/> Login with Google</button>
-                <button className="btn btn-ghost"><FaGithub/> Login with github</button>
+              <div className="form-control mb-4">
+                <button className="btn bg-[#2a2929] text-white">Login</button>
+                <div className="flex flex-row justify-center items-center my-4">
+                  <hr className="w-10 mr-3" /> <small>Social login</small>{" "}
+                  <hr className="w-10 ml-3" />
+                </div>
+                <div className="flex flex-row justify-center">
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-ghost"
+                  >
+                    <FaGoogle />{" "}
+                  </button>
+                  <button className="btn btn-ghost">
+                    <FaGithub />{" "}
+                  </button>
+                </div>
               </div>
-              <small className="text-center ">New User? Please <Link to="/register" className="text-cyan-400 underline">Register</Link> </small>
-            </form> 
+              <small className="text-center ">
+                New User? Please{" "}
+                <Link to="/register" className="text-cyan-400 underline">
+                  Register
+                </Link>{" "}
+              </small>
+            </form>
           </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Login;
