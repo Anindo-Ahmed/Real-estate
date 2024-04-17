@@ -81,7 +81,7 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  src={user.photoURl}
+                  src={user ?.photoURl || "https://lh3.googleusercontent.com/a/ACg8ocJgHhvtxR5gilMkt8ygizjQW9i3tyu493hq6lKn1oxWYwcf3VW0=s96-c"}
                   className="bg-base-200"
                 />
               </div>

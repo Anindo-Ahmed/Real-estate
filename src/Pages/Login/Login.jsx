@@ -7,7 +7,7 @@ import banner1 from "../../assets/banner 3.jpeg";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { userLogin, googleLogin } = useContext(AuthContext);
+  const { userLogin, googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
   // console.log(location);
   // const [success, setSuccess] = useState(null);
@@ -42,6 +42,16 @@ const Login = () => {
         
       });
   };
+
+  const handlegithubSignIn = () => {
+    githubLogin()
+    .then((result) => {
+      console.log(result.user);
+    })
+    .catch((error) => {
+      console.error(error); 
+    });
+  }
   return (
     <div>
       <Helmet>
@@ -103,7 +113,9 @@ const Login = () => {
                   >
                     <FaGoogle />{" "}
                   </button>
-                  <button className="btn btn-ghost">
+                  <button 
+                    onClick={handlegithubSignIn}
+                    className="btn btn-ghost">
                     <FaGithub />{" "}
                   </button>
                 </div>

@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const [success, setSuccess] = useState(null);
   const [registerError, setRegisterError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,11 @@ const Register = () => {
 
     createUser(e.email, e.password)
       .then((result) => {
-        console.log(result.user);
+        updateUserProfile(name, image)
+          .then(() => {
+            console.log(result.user);
+          })
+        
         setSuccess("Registration successfull");
         alert('Registration Successfull')
       })
