@@ -18,10 +18,6 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (e) => {
-    // if(!/[^(?=.\d)?=.[a-z](?=.*[A-Z]).{6,20}$]/.test(e.password)){
-    //   setRegisterError('please provide a valid password');
-    //   return;
-    // }
     if (e.password.length < 6) {
       setRegisterError("Please insert minimum 6 characters");
       console.log("Please insert minimum 6 characters");
@@ -37,13 +33,14 @@ const Register = () => {
     }
 
     //  reset error and successful
-    // setSuccess('');
-    setRegisterError("");
+    setSuccess(" ");
+    setRegisterError(" ");
 
     createUser(e.email, e.password)
       .then((result) => {
         console.log(result.user);
         setSuccess("Registration successfull");
+        alert('Registration Successfull')
       })
       .catch((error) => {
         console.error(error);

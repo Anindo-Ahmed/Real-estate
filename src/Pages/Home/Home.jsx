@@ -16,7 +16,9 @@ import 'swiper/css/bundle';
 import { Pagination, Navigation } from 'swiper/modules';
 import EachHome from "../EachHome";
 import { Helmet } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
 const Home = () => {
+    // const homes = useLoaderData()
     const [homes, setHomes] = useState([]);
 
     useEffect(() => {
@@ -36,7 +38,7 @@ const Home = () => {
             pagination={true}
             navigation={true}
             modules={[Pagination, Navigation]}
-            className="mySwiper mt-20"
+            className="mySwiper mt-24"
             loop={true}>
             <SwiperSlide >
                 <img src={banner1} alt="banner1" />

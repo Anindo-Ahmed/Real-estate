@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import EstateDetails from "../Pages/EstateDetails/EstateDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import Faq from "../Pages/FAQ/Faq";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,12 @@ const router = createBrowserRouter([
         {
             path: "/register",
             element: <Register></Register>
+        },
+        {
+          path: "/faq",
+          element: <PrivateRoutes><Faq></Faq></PrivateRoutes>
         }
+
       ]
     }
   ]);

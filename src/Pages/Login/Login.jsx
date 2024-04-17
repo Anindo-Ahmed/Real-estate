@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -9,7 +9,9 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { userLogin, googleLogin } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
+  // const [success, setSuccess] = useState(null);
+  // const [loginError, setLoginError] = useState("");
 
   const {
     register,
@@ -21,9 +23,12 @@ const Login = () => {
     userLogin(e.email, e.password)
       .then((result) => {
         console.log(result.user);
+        alert('Login Successfull')
       })
       .catch((error) => {
         console.error(error);
+        alert('Please provide correct Password', error)
+        
       });
   };
 
@@ -34,6 +39,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
+        
       });
   };
   return (

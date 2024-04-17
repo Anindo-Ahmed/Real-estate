@@ -8,6 +8,7 @@ const Navbar = () => {
 
   const navLinks = (
     <>
+      
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -23,6 +24,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/register">Register</NavLink>
       </li>
+      <li>
+        <NavLink to="/faq">FAQ</NavLink>
+      </li>
     </>
   );
   const handleLogOut = () => {
@@ -35,7 +39,7 @@ const Navbar = () => {
     })
 }
   return (
-    <div className="navbar bg-base-100 my-6">
+    <div className="navbar bg-base-100 my-6 " >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +70,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end tooltip" >
+      <div className="navbar-end tooltip" data-tip={user && user.displayName}>
 
         {
           user ? <div className="dropdown dropdown-end">
@@ -77,9 +81,8 @@ const Navbar = () => {
             >
               <div className="w-10 rounded-full">
                 <img
-                  // src="https://lh3.googleusercontent.com/a/ACg8ocJgHhvtxR5gilMkt8ygizjQW9i3tyu493hq6lKn1oxWYwcf3VW0=s96-c"
                   src={user.photoURl}
-                  
+                  className="bg-base-200"
                 />
               </div>
             </div>
