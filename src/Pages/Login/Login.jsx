@@ -51,7 +51,7 @@ const Login = () => {
         <img src={banner1} alt="" />
         <div className="hero-content flex-col">
           <div className="text-start lg:text-left">
-            <h1 className="text-5xl font-bold mb-6">Login Now!</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6">Login Now!</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
