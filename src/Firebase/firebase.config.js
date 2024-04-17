@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 
 // web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCjuWkWovm-_fKzJIsyFyiNE4jP7cmp3HE",
-  authDomain: "react-dream-home-2f36b.firebaseapp.com",
-  projectId: "react-dream-home-2f36b",
-  storageBucket: "react-dream-home-2f36b.appspot.com",
-  messagingSenderId: "589116804247",
-  appId: "1:589116804247:web:1077cec4543acf13c22dd2"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

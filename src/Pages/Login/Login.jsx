@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import banner1 from "../../assets/banner 3.jpeg";
@@ -9,9 +9,7 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { userLogin, googleLogin, githubLogin } = useContext(AuthContext);
   const location = useLocation();
-  // console.log(location);
-  // const [success, setSuccess] = useState(null);
-  // const [loginError, setLoginError] = useState("");
+  const navigate = useNavigate()
 
   const {
     register,
@@ -23,7 +21,8 @@ const Login = () => {
     userLogin(e.email, e.password)
       .then((result) => {
         console.log(result.user);
-        alert('Login Successfull')
+        alert('Login Successfull');
+        navigate(location ?.state ? location.state : '/')
       })
       .catch((error) => {
         console.error(error);
