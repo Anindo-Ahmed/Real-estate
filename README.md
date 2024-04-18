@@ -1,8 +1,14 @@
-# React + Vite
+# DREAM HOME
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link: https://gleaming-malabi-891803.netlify.app/
 
-Currently, two official plugins are available:
+This sites will help you to select your desired apartment where you can find a quality time to spend with your family.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Get your budget friendly apartment.
+- Seaview side apartment.
+- Parking facilities with good outdoor spaces.
+- A great community amenities.
+- Well designed with proper location.
+
+- [@vitejs/react-hook-form](https://react-hook-form.com/) uses (https://babeljs.io/) for form creation.
+- [@vitejs/plugin-react-swiper](https://swiperjs.com/) uses (https://swc.rs/) for slider.
