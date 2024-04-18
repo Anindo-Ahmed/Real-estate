@@ -10,5 +10,5 @@ This sites will help you to select your desired apartment where you can find a q
 - A great community amenities.
 - Well designed with proper location.
 
-- [@vitejs/react-hook-form](https://react-hook-form.com/) uses (https://babeljs.io/) for form creation.
-- [@vitejs/plugin-react-swiper](https://swiperjs.com/) uses (https://swc.rs/) for slider.
+- [@vitejs/react-hook-form](https://react-hook-form.com/) uses (https://react-hook-form.com/) for form creation.
+- [@vitejs/plugin-react-swiper](https://swiperjs.com/) uses (https://swiperjs.com/) for slider.
